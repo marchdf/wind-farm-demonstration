@@ -135,7 +135,8 @@ geometry.is_periodic    =   0   1   0   # Periodicity x y z (0/1)
 #        Mesh refinement                #
 #.......................................#
 amr.max_level           =  3           # Max AMR level in hierarchy
-#amr.blocking_factor=4
+amr.blocking_factor = 16
+amr.max_grid_size = 128
 
 #---- tagging defs ----
 tagging.labels                           = Tall_level_0 T1_level_1_zone T2_level_1_zone T3_level_1_zone T4_level_1_zone T5_level_1_zone T1_level_2_zone T2_level_2_zone T3_level_2_zone T4_level_2_zone T5_level_2_zone
