@@ -1,0 +1,6 @@
+[submodule "submods/amr-wind-frontend"]
+	path = submods/amr-wind-frontend
+	url = git@github.com:Exawind/amr-wind-frontend.git
+[submodule "submods/ALCC_Frontier_WindFarm"]
+	path = submods/ALCC_Frontier_WindFarm
+	url = git@github.com:lawrenceccheung/ALCC_Frontier_WindFarm.git

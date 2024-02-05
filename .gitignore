@@ -5,5 +5,8 @@ log.amr_wind.*
 *.HD.sum
 *.SD.ech
 *.SrvD.sum
+*.bak
 IEA-15-240-RWT-Monopile.*.out
 IEA-15-240-RWT-Monopile.*.sum
+.ccls-cache/
+.ipynb_checkpoints/

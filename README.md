@@ -1,5 +1,19 @@
 # Demonstration wind farm case
 
+## Software and dependencies
+
+```
+$ git clone --recursive git@github.com:marchdf/wind-farm-demonstration.git
+$ cp -r submods/ALCC_Frontier_WindFarm/turbines/turbinedef/* submods/amr-wind-frontend/turbines/
+```
+Change the `Acutator_epsilon` and `Acutator_epsilon_tower` to 5.0 instead of 2.5 in `IEA15MW.yaml`.
+
+## Creating the wind farm
+
+Run `demo_farm.ipynb`.
+
+## Spack environment
+
 Spack manager file, note the ROSCO stuff:
 ```
 # This is a Spack Environment file.
