@@ -1,0 +1,9 @@
+chk*
+bndry_file.nc
+log.amr_wind.*
+*.ED.sum
+*.HD.sum
+*.SD.ech
+*.SrvD.sum
+IEA-15-240-RWT-Monopile.*.out
+IEA-15-240-RWT-Monopile.*.sum
