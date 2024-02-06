@@ -6,7 +6,10 @@
 $ git clone --recursive git@github.com:marchdf/wind-farm-demonstration.git
 $ cp -r submods/ALCC_Frontier_WindFarm/turbines/turbinedef/* submods/amr-wind-frontend/turbines/
 ```
-Change the `Acutator_epsilon` and `Acutator_epsilon_tower` to 5.0 instead of 2.5 in `IEA15MW.yaml`.
+
+Also do the following:
+1. Change the `Acutator_epsilon` and `Acutator_epsilon_tower` to 5.0 instead of 2.5 in `IEA15MW.yaml`.
+2. Change the `DLL_FileName` in `submods/amr-wind-frontend/turbines/OpenFAST3p4_IEA15MW/IEA-15-240-RWT-Monopile/IEA-15-240-RWT-Monopile_ServoDyn.dat` to `libdiscon.so`
 
 ## Creating the wind farm
 

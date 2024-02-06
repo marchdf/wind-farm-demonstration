@@ -11,17 +11,17 @@ True                   EdgeDOF     - First edgewise blade mode DOF (flag)
 False                  TeetDOF     - Rotor-teeter DOF (flag) [unused for 3 blades]
 False                  DrTrDOF     - Drivetrain rotational-flexibility DOF (flag)
 True                   GenDOF      - Generator DOF (flag)
-     False YawDOF - Yaw DOF (flag) [EDITED] [EDITED] [EDITED] [EDITED] [EDITED]
+     False YawDOF - Yaw DOF (flag) [EDITED]
 True                   TwFADOF1    - First fore-aft tower bending-mode DOF (flag)
 True                   TwFADOF2    - Second fore-aft tower bending-mode DOF (flag)
 True                   TwSSDOF1    - First side-to-side tower bending-mode DOF (flag)
 True                   TwSSDOF2    - Second side-to-side tower bending-mode DOF (flag)
-     False PtfmSgDOF - Platform horizontal surge translation DOF (flag) [EDITED] [EDITED] [EDITED] [EDITED] [EDITED]
-     False PtfmSwDOF - Platform horizontal sway translation DOF (flag) [EDITED] [EDITED] [EDITED] [EDITED] [EDITED]
-     False PtfmHvDOF - Platform vertical heave translation DOF (flag) [EDITED] [EDITED] [EDITED] [EDITED] [EDITED]
-     False PtfmRDOF - Platform roll tilt rotation DOF (flag) [EDITED] [EDITED] [EDITED] [EDITED] [EDITED]
-     False PtfmPDOF - Platform pitch tilt rotation DOF (flag) [EDITED] [EDITED] [EDITED] [EDITED] [EDITED]
-     False PtfmYDOF - Platform yaw rotation DOF (flag) [EDITED] [EDITED] [EDITED] [EDITED] [EDITED]
+     False PtfmSgDOF - Platform horizontal surge translation DOF (flag) [EDITED]
+     False PtfmSwDOF - Platform horizontal sway translation DOF (flag) [EDITED]
+     False PtfmHvDOF - Platform vertical heave translation DOF (flag) [EDITED]
+     False PtfmRDOF - Platform roll tilt rotation DOF (flag) [EDITED]
+     False PtfmPDOF - Platform pitch tilt rotation DOF (flag) [EDITED]
+     False PtfmYDOF - Platform yaw rotation DOF (flag) [EDITED]
 ---------------------- INITIAL CONDITIONS --------------------------------------
 0.0                    OoPDefl     - Initial out-of-plane blade-tip displacement (meters)
 0.0                    IPDefl      - Initial in-plane blade-tip deflection (meters)
