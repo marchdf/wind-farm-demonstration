@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -J 5turb
+#SBATCH -J demo_case
 #SBATCH -o %x.o%j
 #SBATCH -A CFD162
 #SBATCH -t 30

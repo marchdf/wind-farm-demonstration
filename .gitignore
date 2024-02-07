@@ -6,6 +6,8 @@ log.amr_wind.*
 *.SD.ech
 *.SrvD.sum
 *.bak
+*.dbg
+demo_case.o*
 IEA-15-240-RWT-Monopile.*.out
 IEA-15-240-RWT-Monopile.*.sum
 .ccls-cache/
