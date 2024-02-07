@@ -417,6 +417,8 @@ SW_.type                                 = Sampling
 SW_.output_frequency                     = 10                  
 SW_.fields                               = velocity            
 averaging.type                           = TimeAveraging       
+averaging.averaging_window               = 300.0               
+averaging.averaging_start_time           = 20900.0             
 
 #---- averaging defs ----
 averaging.labels                         = means stress        
