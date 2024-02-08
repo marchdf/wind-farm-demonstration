@@ -630,4 +630,5 @@ ABL.deltaV                               = 0.25
 ABL.kappa                                = 0.41                
 ABL.surface_roughness_z0                 = 0.75                
 ABL.normal_direction                     = 2                   
+time.checkpoint_start                    = 40000               
 #== END AMR-WIND INPUT ==
