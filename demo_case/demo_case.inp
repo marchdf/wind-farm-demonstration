@@ -2,7 +2,7 @@
 time.stop_time                           = 21800.0             # Max (simulated) time to evolve [s]
 time.max_step                            = -1                  
 time.fixed_dt                            = 0.02                # Fixed timestep size (in seconds). If negative, then time.cfl is used
-time.checkpoint_interval                 = 10000               
+time.checkpoint_interval                 = 1000                
 incflo.physics                           = ABL Actuator        # List of physics models to include in simulation.
 incflo.verbose                           = 1                   
 io.check_file                            = chk                 
@@ -59,7 +59,7 @@ CoriolisForcing.north_vector             = 0.0 1.0 0.0
 CoriolisForcing.east_vector              = 1.0 0.0 0.0         
 BoussinesqBuoyancy.reference_temperature = 300.0               
 BodyForce.magnitude                      = 0.00045577915197378074 0.0009349589835232567 0.0
-time.plot_interval                       = 10000               
+time.plot_interval                       = 1000                
 io.plot_file                             = plt                 
 io.outputs                               = actuator_src_term   
 io.KE_int                                = -1                  
