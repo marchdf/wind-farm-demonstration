@@ -3,6 +3,7 @@ time.stop_time                           = 21800.0             # Max (simulated)
 time.max_step                            = -1                  
 time.fixed_dt                            = 0.02                # Fixed timestep size (in seconds). If negative, then time.cfl is used
 time.checkpoint_interval                 = 1000                
+time.checkpoint_start                    = 40000               
 incflo.physics                           = ABL Actuator        # List of physics models to include in simulation.
 incflo.verbose                           = 1                   
 io.check_file                            = chk                 
@@ -630,5 +631,4 @@ ABL.deltaV                               = 0.25
 ABL.kappa                                = 0.41                
 ABL.surface_roughness_z0                 = 0.75                
 ABL.normal_direction                     = 2                   
-time.checkpoint_start                    = 40000               
 #== END AMR-WIND INPUT ==
