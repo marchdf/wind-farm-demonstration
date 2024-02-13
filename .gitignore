@@ -1,4 +1,7 @@
 chk*
+plt*
+fast_velocity_data
+post_processing
 bndry_file.nc
 log.amr_wind.*
 *.ED.sum
@@ -7,6 +10,8 @@ log.amr_wind.*
 *.SrvD.sum
 *.bak
 *.dbg
+*.chkp
+*.out
 demo_case.o*
 IEA-15-240-RWT-Monopile.*.out
 IEA-15-240-RWT-Monopile.*.sum
