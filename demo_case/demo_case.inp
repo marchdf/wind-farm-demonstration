@@ -74,6 +74,9 @@ time.plot_interval                       = 1000
 io.plot_file                             = plt                 
 io.outputs                               = actuator_src_term   
 io.KE_int                                = -1                  
+Actuator.type                            = TurbineFastLine     
+Actuator.TurbineFastLine.fllc            = false               
+Actuator.TurbineFastLine.density         = 1.225               
 
 #---- tagging defs ----
 tagging.labels                           = Farm T1A_level_1_zone T2A_level_1_zone T3A_level_1_zone T4A_level_1_zone T1B_level_1_zone T2B_level_1_zone T3B_level_1_zone T4B_level_1_zone T1C_level_1_zone T2C_level_1_zone T3C_level_1_zone T4C_level_1_zone
