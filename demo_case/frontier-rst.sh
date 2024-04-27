@@ -5,7 +5,11 @@
 #SBATCH -t 12:00:00
 #SBATCH -N 184
 #SBATCH -S 0
-#SBATCH -d afterany:1709550
+##SBATCH -d afterany:1881424 # 00 -> 01
+##SBATCH -d afterany:1881429 # 01 -> 02
+##SBATCH -d afterany:1881430 # 02 -> 03
+##SBATCH -d afterany:1881431 # 03 -> 04
+##SBATCH -d afterany:1881433 # 04 -> 05
 
 set -e
 cmd() {
@@ -13,8 +17,8 @@ cmd() {
   eval "$@"
 }
 
-ofile="demo_case_rst05.inp"
-rfile="demo_case_rst06.inp"
+ofile="demo_case_rst04.inp"
+rfile="demo_case_rst05.inp"
 
 cmd "Xvfb :123 & export DISPLAY=:123"
 cmd "source /ccs/proj/cfd162/lcheung/condaenv/frontier1/bin/activate"
