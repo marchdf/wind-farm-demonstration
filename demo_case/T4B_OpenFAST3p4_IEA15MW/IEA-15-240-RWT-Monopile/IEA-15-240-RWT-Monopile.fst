@@ -21,7 +21,7 @@ False                  Echo        - Echo input data to <RootName>.ech (flag)
 0                      MHK         - MHK turbine type (switch) {0=Not an MHK turbine; 1=Fixed MHK turbine; 2=Floating MHK turbine}
 ---------------------- ENVIRONMENTAL CONDITIONS --------------------------------
 9.81                   Gravity     - Gravitational acceleration (m/s^2)
-     1.225 AirDens - Air density (kg/m^3) [EDITED]
+1.225                  AirDens     - Air density (kg/m^3)
 1025                   WtrDens     - Water density (kg/m^3)
 1.464e-05              KinVisc     - Kinematic viscosity of working fluid (m^2/s)
 335                    SpdSound    - Speed of sound in working fluid (m/s)
