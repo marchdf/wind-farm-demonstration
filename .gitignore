@@ -17,3 +17,11 @@ IEA-15-240-RWT-Monopile.*.out
 IEA-15-240-RWT-Monopile.*.sum
 .ccls-cache/
 .ipynb_checkpoints/
+scaling/*/*/*/T*_*
+scaling/*/*/*/avg_theta.dat
+scaling/*/*/*/demo_case.inp
+scaling_*.o*
+scaling/*/*/*/out.log
+scaling/flat/refine-chk/refine-0/
+refiner-*.log
+refiner.o*
