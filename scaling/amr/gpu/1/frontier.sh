@@ -14,7 +14,10 @@ cmd() {
 
 cmd "module unload PrgEnv-cray"
 cmd "module load PrgEnv-amd/8.5.0"
+cmd "module load cpe/24.07"
 cmd "module load amd/6.2.4"
+cmd "module load rocm/6.2.4"
+cmd "export LD_LIBRARY_PATH=${CRAY_LD_LIBRARY_PATH}:${LD_LIBRARY_PATH}"
 # cmd "export FI_MR_CACHE_MONITOR=memhooks"
 # cmd "export FI_CXI_RX_MATCH_MODE=software"
 # cmd "export MPICH_SMP_SINGLE_COPY_MODE=NONE"
