@@ -1,9 +1,9 @@
 #!/bin/bash
-#SBATCH -J scaling_amr_gpu_1
+#SBATCH -J scaling_amr_gpu_2
 #SBATCH -o %x.o%j
 #SBATCH -A CFD162
 #SBATCH -t 2:00:00
-#SBATCH -N 1
+#SBATCH -N 2
 #SBATCH -S 0
 
 set -e
@@ -12,12 +12,9 @@ cmd() {
   eval "$@"
 }
 
-cmd "module unload PrgEnv-cray"
 cmd "module load PrgEnv-amd/8.5.0"
-cmd "module load cpe/24.07"
-cmd "module load amd/6.2.4"
-cmd "module load rocm/6.2.4"
-cmd "export LD_LIBRARY_PATH=${CRAY_LD_LIBRARY_PATH}:${LD_LIBRARY_PATH}"
+cmd "module load amd/6.1.3"
+cmd "module load rocm/6.1.3"
 # cmd "export FI_MR_CACHE_MONITOR=memhooks"
 # cmd "export FI_CXI_RX_MATCH_MODE=software"
 # cmd "export MPICH_SMP_SINGLE_COPY_MODE=NONE"
@@ -38,4 +35,4 @@ for dir in T*_*; do
 done
 cmd "cp ../../../demo_case.inp ."
 cmd "cp ../../../avg_theta.dat ."
-cmd "srun -N1 -n8 -c1 --gpus-per-node=8 --gpu-bind=closest amr_wind demo_case.inp amrex.abort_on_out_of_gpu_memory=1 amrex.the_arena_is_managed=0 amr.blocking_factor=16 amr.max_grid_size=128 amrex.use_profiler_syncs=0 amrex.async_out=0 time.max_step=40020 > out.log"
+cmd "srun -N2 -n16 -c1 --gpus-per-node=8 --gpu-bind=closest amr_wind demo_case.inp amrex.abort_on_out_of_gpu_memory=1 amrex.the_arena_is_managed=0 amr.blocking_factor=16 amr.max_grid_size=128 amrex.use_profiler_syncs=0 amrex.async_out=0 time.max_step=40020 > out.log"
