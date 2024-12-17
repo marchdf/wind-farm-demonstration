@@ -1,9 +1,9 @@
 #!/bin/bash
-#SBATCH -J scaling_amr_gpu_2
+#SBATCH -J scaling_amr_gpu_32
 #SBATCH -o %x.o%j
 #SBATCH -A CFD162
-#SBATCH -t 2:00:00
-#SBATCH -N 2
+#SBATCH -t 0:10:00
+#SBATCH -N 32
 #SBATCH -S 0
 
 set -e
@@ -35,4 +35,4 @@ for dir in T*_*; do
 done
 cmd "cp ../../../demo_case.inp ."
 cmd "cp ../../../avg_theta.dat ."
-cmd "srun -N2 -n16 --gpus-per-node=8 --gpu-bind=closest amr_wind demo_case.inp amrex.abort_on_out_of_gpu_memory=1 amrex.the_arena_is_managed=0 amr.blocking_factor=16 amr.max_grid_size=128 amrex.use_profiler_syncs=0 amrex.async_out=0 amrex.use_gpu_aware_mpi=1 time.max_step=40020 > out.log"
+cmd "srun -N32 -n256 --gpus-per-node=8 --gpu-bind=closest amr_wind demo_case.inp amrex.abort_on_out_of_gpu_memory=1 amrex.the_arena_is_managed=0 amr.blocking_factor=16 amr.max_grid_size=128 amrex.use_profiler_syncs=0 amrex.async_out=0 amrex.use_gpu_aware_mpi=1 time.max_step=40020 > out.log"

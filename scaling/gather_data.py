@@ -3,11 +3,12 @@
 import glob
 import pathlib
 import csv
+import math
 
 def main():
 
     mdirs = ["amr"]
-    hdirs = ["cpu"]
+    hdirs = ["cpu", "gpu"]
     lst = []
     for mdir in mdirs:
         for hdir in hdirs:
@@ -18,25 +19,33 @@ def main():
                 gpu = False
                 times = []
                 dt = 0.0
+                ncells = 0
                 try:
                     with open(fname, "r") as f:
                         for line in f:
                             if ("MPI initialized with" in line) and ("MPI processes" in line):
                                 nranks = line.split()[3]
-                            elif "GPU" in line:
+                            elif line.lstrip().startswith("GPU"):
                                 gpu = line.split()[2] == "ON"
                             elif "WallClockTime" in line:
                                 times.append(float(line.split()[-1]))
                             elif "Fixed timestepping with dt" in line:
                                 dt = float(line.split()[5].replace(";", ""))
+                            elif "cells" in line and "domain" in line:
+                                ncells += int(line.split()[4])
                 except FileNotFoundError:
                     continue
                 if times:
                     n_avg = 10
                     avg_time = 0.0
+                    std = 0.0
                     for i in range(-n_avg, 0):
-                        avg_time += times[-1]
-                    lst.append({"gpu": gpu, "mesh": mdir, "time": avg_time / n_avg, "nranks": nranks, "dt": dt})
+                        avg_time += times[i]
+                    avg_time /= n_avg
+                    for i in range(-n_avg, 0):
+                        std += (times[i] - avg_time)**2
+                    std = math.sqrt(std / (n_avg-1))
+                    lst.append({"gpu": gpu, "mesh": mdir, "time": avg_time, "nranks": nranks, "dt": dt, "std": std, "ncells": ncells})
 
     keys = lst[0].keys()
     fname = "scaling.csv"
