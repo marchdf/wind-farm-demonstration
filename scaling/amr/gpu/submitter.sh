@@ -7,8 +7,7 @@ cmd() {
 }
 
 CWD="$(pwd)"
-# FDIRS=( "2" "4" "8" "16"  )
-FDIRS=( "32" "64" "128" "256" )
+FDIRS=( "2" "4" "8" "16" "32" "64" "128" "256")
 for FDIR in "${FDIRS[@]}"
 do
    cmd "cd ${CWD}/${FDIR}"
