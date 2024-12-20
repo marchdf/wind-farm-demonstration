@@ -1,9 +1,9 @@
 #!/bin/bash
-#SBATCH -J scaling_amr_gpu_16
+#SBATCH -J scaling_flat_gpu_32
 #SBATCH -o %x.o%j
 #SBATCH -A CFD162
 #SBATCH -t 1:00:00
-#SBATCH -N 16
+#SBATCH -N 32
 #SBATCH -S 0
 
 set -e
@@ -12,7 +12,7 @@ cmd() {
   eval "$@"
 }
 
-cmd "module load PrgEnv-amd/8.5.0"
+cmd "module load PrgEnv-amd"
 cmd "module load amd/6.1.3"
 cmd "module load rocm/6.1.3"
 # cmd "export FI_MR_CACHE_MONITOR=memhooks"
@@ -27,12 +27,13 @@ cmd "export MPICH_GPU_SUPPORT_ENABLED=1"
 cmd "export EXAWIND_MANAGER=${HOME}/exawind/exawind-manager"
 cmd "source ${EXAWIND_MANAGER}/start.sh && spack-start"
 cmd "spack env activate -d ${EXAWIND_MANAGER}/environments/amr-wind-of"
-cmd "spack load amr-wind+netcdf+rocm"
+cmd "spack load amr-wind+netcdf+rocm build_type=Release"
 cmd "which amr_wind"
 cmd "rsync -avzu --delete ${HOME}/exawind/source/wind-farm-demonstration/demo_case/T*_* ."
 for dir in T*_*; do
     cmd 'cp "$(spack location -i rosco)/lib/libdiscon.so" "${dir}/IEA-15-240-RWT-Monopile"';
 done
+cmd "[ ! -f out.log ] || mv out.log out.log.bkp"
 cmd "cp ../../../demo_case.inp ."
 cmd "cp ../../../avg_theta.dat ."
-cmd "srun -N16 -n128 --gpus-per-node=8 --gpu-bind=closest amr_wind demo_case.inp amrex.abort_on_out_of_gpu_memory=1 amrex.the_arena_is_managed=0 amr.blocking_factor=16 amr.max_grid_size=128 amrex.use_profiler_syncs=0 amrex.async_out=0 amrex.use_gpu_aware_mpi=1 time.max_step=40040 > out.log"
+cmd "srun -N32 -n256 --gpus-per-node=8 --gpu-bind=closest amr_wind demo_case.inp amrex.abort_on_out_of_gpu_memory=1 amrex.the_arena_is_managed=0 amr.blocking_factor=16 amr.max_grid_size=128 amrex.use_profiler_syncs=0 amrex.async_out=0 amrex.use_gpu_aware_mpi=1 time.max_step=40040 amr.max_level=0 amr.n_cell=4096 3072 384 io.restart_file=../../refine-chk/chk40000 ABL.bndry_file=../../refine-chk/refine_boundary_planes/bndry_file.nc.original > out.log"

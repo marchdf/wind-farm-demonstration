@@ -14,7 +14,7 @@ cmd() {
 
 cmd "module unload PrgEnv-cray"
 cmd "module load PrgEnv-amd"
-cmd "module load amd/6.2.4"
+cmd "module load amd/6.1.3"
 # cmd "export FI_MR_CACHE_MONITOR=memhooks"
 # cmd "export FI_CXI_RX_MATCH_MODE=software"
 # cmd "export MPICH_SMP_SINGLE_COPY_MODE=NONE"
@@ -35,4 +35,4 @@ for dir in T*_*; do
 done
 cmd "cp ../../../demo_case.inp ."
 cmd "cp ../../../avg_theta.dat ."
-cmd "srun -N256 -n14336 -c1 amr_wind demo_case.inp amr.blocking_factor=16 amr.max_grid_size=128 amrex.use_profiler_syncs=0 amrex.async_out=0 time.max_step=40020 > out.log"
+cmd "srun -N256 -n14336 -c1 amr_wind demo_case.inp amr.blocking_factor=16 amr.max_grid_size=128 amrex.use_profiler_syncs=0 amrex.async_out=0 time.max_step=40040 > out.log"

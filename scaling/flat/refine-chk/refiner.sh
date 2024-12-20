@@ -12,9 +12,8 @@ cmd() {
   eval "$@"
 }
 
-cmd "module unload PrgEnv-cray"
 cmd "module load PrgEnv-amd"
-cmd "module load amd/6.2.0"
+cmd "module load amd/6.2.4"
 # cmd "export FI_MR_CACHE_MONITOR=memhooks"
 # cmd "export FI_CXI_RX_MATCH_MODE=software"
 # cmd "export MPICH_SMP_SINGLE_COPY_MODE=NONE"
@@ -31,4 +30,4 @@ cmd "spack load amr-wind+netcdf~rocm"
 cmd "which amr_wind_refine_chkpt"
 cmd "srun -N8 -n448 -c1 amr_wind_refine_chkpt refiner.inp amr.max_level=1 > refiner-0.log"
 cmd "mv chk40000 refine-0"
-cmd "srun -N8 -n448 -c1 amr_wind_refine_chkpt refiner.inp amr.max_level=1 io.restart_file=refine-0 amr.n_cell=2096 1536 192 > refiner-1.log"
+cmd "srun -N8 -n448 -c1 amr_wind_refine_chkpt refiner.inp amr.max_level=1 io.restart_file=refine-0 amr.n_cell=2048 1536 192 > refiner-1.log"

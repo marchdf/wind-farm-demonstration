@@ -20,4 +20,4 @@ cmd "source ${CONDA_DIR}/etc/profile.d/conda.sh"
 
 cmd "conda activate pyamrex"
 cmd "export OMP_NUM_THREADS=1"
-cmd "python ${HOME}/exawind/source/amr-wind/tools/generate_native_boundary_plane_header.py -f bndry_file.nc.original -i ../../../02_precursor_shell/neutral_8.6at150.10dTInv_0.75z0_750zi_10x7x1km_feb3/setup_precursor_neutral.i"
+cmd "python ${HOME}/exawind/source/amr-wind/tools/generate_native_boundary_plane_header.py -f bndry_file.nc.original -i ../../../02_precursor_shell/neutral_8.6at150.10dTInv_0.75z0_750zi_10x7x1km_feb3/setup_precursor_neutral.i -o"

@@ -7,7 +7,7 @@ import math
 
 def main():
 
-    mdirs = ["amr"]
+    mdirs = ["amr", "flat"]
     hdirs = ["cpu", "gpu"]
     lst = []
     for mdir in mdirs:
