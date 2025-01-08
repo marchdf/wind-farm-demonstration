@@ -27,7 +27,7 @@ cmd "module load amd/6.1.3"
 cmd "export EXAWIND_MANAGER=${HOME}/exawind/exawind-manager"
 cmd "source ${EXAWIND_MANAGER}/start.sh && spack-start"
 cmd "spack env activate -d ${EXAWIND_MANAGER}/environments/amr-wind-of"
-cmd "spack load amr-wind+netcdf~rocm"
+cmd "spack load amr-wind+netcdf~rocm build_type=Release"
 cmd "which amr_wind"
 cmd "rsync -avzu --delete ${HOME}/exawind/source/wind-farm-demonstration/demo_case/T*_* ."
 for dir in T*_*; do
