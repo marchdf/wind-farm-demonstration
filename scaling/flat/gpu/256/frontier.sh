@@ -2,7 +2,7 @@
 #SBATCH -J scaling_flat_gpu_256
 #SBATCH -o %x.o%j
 #SBATCH -A CFD162
-#SBATCH -t 1:00:00
+#SBATCH -t 0:10:00
 #SBATCH -N 256
 #SBATCH -S 0
 
