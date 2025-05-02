@@ -8,7 +8,7 @@ import math
 def main():
 
     mdirs = ["amr", "flat"]
-    hdirs = ["cpu", "gpu"]
+    hdirs = ["cpu", "gpu", "gpu-post-hackathon"]
     lst = []
     for mdir in mdirs:
         for hdir in hdirs:
@@ -35,7 +35,9 @@ def main():
                                 ncells += int(line.split()[4])
                 except FileNotFoundError:
                     continue
+
                 if times:
+                    print(f"Number of time steps ({gpu}, {mdir}, {nranks}): {len(times)}")
                     n_avg = 10
                     avg_time = 0.0
                     std = 0.0
@@ -45,7 +47,7 @@ def main():
                     for i in range(-n_avg, 0):
                         std += (times[i] - avg_time)**2
                     std = math.sqrt(std / (n_avg-1))
-                    lst.append({"gpu": gpu, "mesh": mdir, "time": avg_time, "nranks": nranks, "dt": dt, "std": std, "ncells": ncells})
+                    lst.append({"gpu": gpu, "mesh": mdir, "time": avg_time, "nranks": nranks, "dt": dt, "std": std, "ncells": ncells, "hdir": hdir})
 
     keys = lst[0].keys()
     fname = "scaling.csv"
